@@ -284,5 +284,71 @@ git stash pop
 
 ### 6 github
 
+#### 6.1 创建仓库
 
+在创建仓库的时候，可以添加需要忽略的文件，.gitignore文件。
+
+#### 6.2 添加ssh账户
+
+（1）点击账户头像后下拉三角，选择“setting”
+
+如果某台机器需要与github上仓库交互，那么就要把这台机器的ssh公钥添加到这个github账户上。
+
+<img src="/home/wx/图片/2021-11-27 13-49-45屏幕截图.png" alt="2021-11-27 13-49-45屏幕截图" style="zoom:50%;" />
+
+在这里添加ssh key的密钥，
+
+（2）获取密钥在主目录下的隐藏文件中设置，使用如下命令：
+
+```bash
+cd
+vim .gitconfig #设置用户的密码和邮箱
+```
+
+![2021-11-27 13-51-27屏幕截图](/home/wx/图片/2021-11-27 13-51-27屏幕截图.png)
+
+（3）使用如下命令生成ssh密钥;
+
+```bash
+ssh-keygen -t rsa -C "注册邮箱"
+```
+
+![x](/home/wx/图片/2021-11-27 13-58-16屏幕截图.png)
+
+(4)获取公钥
+
+![2021-11-27 13-59-58屏幕截图](/home/wx/图片/2021-11-27 13-59-58屏幕截图.png)
+
+#### 6.3 克隆项目
+
+```bash
+git@github.com:MrWXfaster/Notes-Learning.git
+```
+
+#### 6.4 上传分支
+
+（1）创建自己的分支，并在上面开发
+
+（2）推送分支，就是把该分支上所有本地提交推送到远程库，推送时要指定本地分支，这样，git就会把该分支推送到远程库对应的远程分支上。
+
+```bash
+git push origin 分支名称 #origin表示远程的意思
+git push origin wangxing#(分支名)
+```
+
+
+
+#### 6.5 将本地的分支跟踪服务器分支
+
+```bash
+git branch --set-upstream-to=origin/远程分支名称 本地分支名称
+#例如：
+git branch --set-upstream-to=origin/wangxing wangxing
+```
+
+#### 6.6 从远程分支拉取分支
+
+```bash
+git pull origin wangxing
+```
 
